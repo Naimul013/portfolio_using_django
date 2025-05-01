@@ -20,3 +20,7 @@ __pycache__/
 
 # Environment variables file
 .env
+
+portfolio/__pycache__/
+portfolio_app/__pycache__/
+portfolio_app/migrations/__pycache__/
