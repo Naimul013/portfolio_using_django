@@ -7,7 +7,9 @@ def index(request):
     return render(request,'portfolio_app/index.html')
 
 def projects(request):
-    return render(request,'portfolio_app/projects.html')
+    projects = Projects.objects.all()
+    context = {'projects':projects}
+    return render(request,'portfolio_app/projects.html', context)
 
 def resume(request):
     experiences = Experience.objects.all()

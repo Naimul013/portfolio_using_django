@@ -72,3 +72,14 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
+
+class Projects(models.Model):
+    name = models.CharField(max_length=50)
+    link = models.URLField(blank=True, max_length=200)
+    desc = models.TextField()
+    img = models.ImageField(upload_to='images', height_field=None, width_field=None, max_length=None)
+
+    def __str__(self):
+        return self.name
+    
+    
