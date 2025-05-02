@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import *
+from .forms import *
 # Create your views here.
 def index(request):
     return render(request,'portfolio_app/index.html')
@@ -20,4 +22,17 @@ def resume(request):
     return render(request,'portfolio_app/resume.html', context)
 
 def contact(request):
+    
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            
+            form.save()
+            messages.info(request,"Sent successgul")
+            
+
+    else:
+        form = ContactForm()
+    context = {'form':form}
     return render(request,'portfolio_app/contact.html')
